@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SuperSer_Timer.MainPage">
+
+    <StackLayout>
+        <Frame x:Name="Banner" BackgroundColor="Gray" Padding="24" CornerRadius="0">
+            <Label Text="SuperSer Gas Timer" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+        </Frame>
+        <Label x:Name="ModeLabel" Text="LOAD ERROR" FontSize="Title" TextColor="Black" Padding="30,10,30,10"/>
+        <Label Text="Press the button below relative to the setting on your SuperSer gas heater" FontSize="16" TextColor="Black" Padding="30,0,30,0"/>
+
+        <Label></Label>
+
+        <Button x:Name="Off" Text="All Off" IsEnabled="False" Clicked="Off_Clicked"/>
+        <Button x:Name="One" Text="1 On" IsEnabled="True" Clicked="One_Clicked"/>
+        <Button x:Name="Two" Text="2 On" IsEnabled="True" Clicked="Two_Clicked"/>
+        <Button x:Name="Three" Text="3 On" IsEnabled="True" Clicked="Three_Clicked"/>
+
+        <Label></Label>
+        <Label></Label>
+
+        <Label x:Name="FuelLabel" TextColor="Black" FontSize="Title" IsVisible="True" FontAttributes="Bold" HorizontalTextAlignment="Center" Padding="0,0,0,10" Text="Fuel Guage"/>
+        <ProgressBar x:Name="FuelGuage" ScaleY="2.5" BackgroundColor="Gray" Progress="0" ProgressColor="Black" IsVisible="True"/>
+
+        <Label></Label>
+        <Label></Label>
+
+        <Label x:Name="SliderLabel" Text="Slide to..." HorizontalTextAlignment="Center" TextColor="Black" Padding="0,0,0,5"/>
+        <Slider x:Name="CalibrationSlider" ScaleY="1"  MaximumTrackColor="Black" Maximum="100" DragCompleted="Calibration_Toggled"/>
+    </StackLayout>
+
+</ContentPage>
