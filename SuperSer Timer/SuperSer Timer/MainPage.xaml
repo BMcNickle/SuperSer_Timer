@@ -24,6 +24,9 @@
         <ProgressBar x:Name="FuelGuage" ScaleY="2.5" BackgroundColor="Gray" Progress="0" ProgressColor="Black" IsVisible="True"/>
 
         <Label></Label>
+
+        <Button x:Name="New_Tank" Text="New Gas Tank" IsEnabled="True" Clicked="New_Clicked"/>
+
         <Label></Label>
 
         <Label x:Name="SliderLabel" Text="Slide to..." HorizontalTextAlignment="Center" TextColor="Black" Padding="0,0,0,5"/>

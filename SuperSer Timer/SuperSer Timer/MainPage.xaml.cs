@@ -118,6 +118,9 @@ namespace SuperSer_Timer
                 FuelGuage.Progress = 0;
                 FuelLabel.IsVisible = false;
 
+                New_Tank.IsVisible = false;
+                New_Tank.IsEnabled = false;
+
                 SliderLabel.Text = "Slide to engage Run Mode";
             }
             else if (_mode == "Run")
@@ -131,6 +134,10 @@ namespace SuperSer_Timer
 
                 FuelGuage.IsVisible = true;
                 FuelLabel.IsVisible = true;
+
+                New_Tank.IsVisible = true;
+                New_Tank.IsEnabled = true;
+                New_Tank.BackgroundColor = Color.DarkRed;
 
                 UpdateGuage();
 
@@ -149,6 +156,10 @@ namespace SuperSer_Timer
                 FuelGuage.BackgroundColor = Color.Gray;
                 FuelGuage.IsVisible = true;
                 FuelLabel.IsVisible = true;
+
+                New_Tank.BackgroundColor = Color.Gray;
+                New_Tank.IsVisible = true;
+                New_Tank.IsEnabled = false;
 
                 SliderLabel.Text = "ERROR";
                 ModeLabel.Text = "ERROR";
@@ -295,6 +306,27 @@ namespace SuperSer_Timer
         {
             FixButtons(3);
             ChangePower(3);
+        }
+
+        /*
+         * Method for when a new gas tank is installed
+         * -- Reset currentTime
+         * -- Change power to off
+         * -- Update file, buttons and fuelGuage
+         */
+        public async void New_Clicked(object sender, EventArgs e)
+        {
+            bool answer = await DisplayAlert("WARNING!", "Installing a new gas tank can not be undone\n\n" +
+                "Are you sure you wish to continue?", "Yes", "No");
+
+            if (answer)
+            {
+                currentTime = fullTime;
+                powerStatus = 0;
+                UpdateFile();
+                UpdateGuage();
+                FixButtons(0);
+            }
         }
 
         /*
